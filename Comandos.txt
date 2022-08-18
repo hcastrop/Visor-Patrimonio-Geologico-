@@ -1,0 +1,10 @@
+
+--crea el proyecto
+cordova create PatrimonioGeologico pe.gob.ingemmet.PatrimonioGeologico PatrimonioGeologico
+
+-- adiciona una plataforma
+cordova platform add browser --save
+cordova platform add Android --save
+
+--ejecuta el app
+ cordova run browser
