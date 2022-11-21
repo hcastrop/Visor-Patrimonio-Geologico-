@@ -45,23 +45,23 @@
         </div>
       </a>
       <ul class="dropdown-menu calcite-menu-drawer">
-        <li><a class="hidden-md hidden-lg" href="#mapTab" aria-controls="mapTab" role="tab" data-toggle="tab"> Map</a></li>
-        <li><a class="active hidden-md hidden-lg" href="#sceneTab" aria-controls="sceneTab" role="tab" data-toggle="tab"> Scene</a></li>
+        <li><a class="active hidden-md hidden-lg"          href="#mapTab"      aria-controls="mapTab"      role="tab" data-toggle="tab"> Map</a></li>
+        <li><a class="  hidden-md hidden-lg"   href="#sceneTab"    aria-controls="sceneTab"    role="tab" data-toggle="tab"> Scene</a></li>
         <li><a role="menuitem" tabindex="0" data-target="#panelInfo" aria-haspopup="true"><span class="glyphicon glyphicon-info-sign"></span> Info</a></li>
         
         
-        <li><a role="menuitem" tabindex="0" data-target="#panelBasemaps" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Mapas Base</a></li>
+        <li><a role="menuitem" tabindex="1" data-target="#panelBasemaps" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Mapas Base</a></li>
 
-        <li><a role="menuitem" tabindex="0" data-target="#panelBookmarks" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Sitios de Interes</a></li>
-        <li><a role="menuitem" tabindex="0" data-target="#panelCoordinateConversion" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Converión de Coordenadas</a></li>
-        <li><a role="menuitem" tabindex="0" data-target="#panelLayerList" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Lista de Capas</a></li>
-        <li><a role="menuitem" tabindex="0" data-target="#panelLegend" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Leyenda</a></li>
-        <li><a role="menuitem" tabindex="0" data-target="#panelPrint" aria-haspopup="true"><span class="glyphicon glyphicon-th-large"></span> Impresion</a></li>
+        <li><a role="menuitem" tabindex="2" data-target="#panelBookmarks" aria-haspopup="true"><span class="glyphicon glyphicon-book"></span> Sitios de Interes</a></li>
+        <li><a role="menuitem" tabindex="3" data-target="#panelCoordinateConversion" aria-haspopup="true"><span class="glyphicon glyphicon-globe"></span> Converión de Coordenadas</a></li>
+        <li><a role="menuitem" tabindex="4" data-target="#panelLayerList" aria-haspopup="true"><span class="glyphicon glyphicon-list-alt"></span> Lista de Capas</a></li>
+        <li><a role="menuitem" tabindex="5" data-target="#panelLegend" aria-haspopup="true"><span class="glyphicon glyphicon-list"></span> Leyenda</a></li>
+        <li><a role="menuitem" tabindex="6" data-target="#panelPrint" aria-haspopup="true"><span class="glyphicon glyphicon-print"></span> Impresion</a></li>
 
 
 
         
-        <li><a role="menuitem" tabindex="0" id="calciteToggleNavbar" aria-haspopup="true"><span class="glyphicon glyphicon-fullscreen"></span> Full Map</a></li>
+        <li><a role="menuitem" tabindex="6" id="calciteToggleNavbar" aria-haspopup="true"><span class="glyphicon glyphicon-fullscreen"></span> Full Map</a></li>
       </ul>
     </div>
     <!-- Title -->
@@ -110,20 +110,8 @@
       </div>
       <div id="collapseInfo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingInfo">
         <div class="panel-body">
-          <p>The main styles used in this app are:</p>
-          Body
-          <li>calcite-nav-top</li>
-          <br>
-          Nav
-          <li>calcite-bgcolor-dark-blue</li>
-          <li>calcite-text-light</li>
-          <br>
-          Dropdown
-          <li>calcite-menu-drawer</li>
-          <br>
-          Panels
-          <li>calcite-panels-right</li>
-          <li>calcite-bg-custom</li>
+         
+            descripcion de app
         </div>
      </div>
     </div>
@@ -296,6 +284,7 @@
     "esri/widgets/Sketch",
     "esri/layers/GraphicsLayer",
     "esri/geometry/Extent",
+    "esri/config",
 
       // Calcite-maps
       "calcite-maps/calcitemaps-v0.10",
@@ -308,13 +297,16 @@
 
       "dojo/domReady!"
     ], function(WebMap, esriConfig, Map, Basemap, MapView, SceneView, Search, watchUtils, query, BasemapGallery, CoordinateConversion,
-    Bookmarks, LayerList, Legend, Locate, Print, Sketch, GraphicsLayer, Extent,
+    Bookmarks, LayerList, Legend, Locate, Print, Sketch, GraphicsLayer, Extent,esriConfig,
     CalciteMaps, CalciteMapsArcGIS) {
        
+          
+    
+    
     // App
     app = {
-        zoom: 1,
-        center: [-40, 40],
+        zoom: 6,
+        center: [-74.912469, -9.310016],
         basemap: "hybrid",
         viewPadding: {
             top: 50, bottom: 0
@@ -331,27 +323,32 @@
         containerScene: "sceneViewDiv"
     };
 
-    // Webmap
-    esriConfig.portalUrl = "https://geocatmin.ingemmet.gob.pe/portal"
-    app.map = new WebMap({
-        portalItem: { id: "84442a00e09842d9a294c8daa8eb6934" },
-        ground: "world-elevation"
-    });
+  
 
     ////esriConfig.portalUrl = "https://geocatmin.ingemmet.gob.pe/portal/"
     //app.map = new WebMap({
     //    portalItem: { id: "f5280ded12814f4da2e4d3647cea54dd" },
     //    ground: "world-elevation"
     //});
+    
+    //esriConfig.portalUrl = "https://geocatmin.ingemmet.gob.pe/portal"
 
+    // Map 
+app.map = new WebMap({
+    portalItem: { id: '94bd880808d94a5fb38b5bebb6d572ea'},
+        //basemap: app.basemap,
+        ground: "world-elevation"
+      });
 
-
+      
+    
     //// Map
     //app.map = new Map({
     //    basemap: app.basemap,
     //    ground: "world-elevation"
     //});
 
+    
     // 2D View
     app.mapView = new MapView({
         container: null, // deactivate
@@ -365,13 +362,7 @@
         }
     });
 
-    app.map.extent = new Extent({
-        xmin: -67.965613,
-        ymin: -18.824816,
-        xmax: -81.859325,
-        ymax: 0.204784,
-        spatialReference: 4326
-    });
+   
 
 
     // 3D View
@@ -386,8 +377,25 @@
         }
     });
 
+
+    // app.sceneView= new Extent({
+    //     xmin: -67.965613,
+    //     ymin: -18.824816,
+    //     xmax: -81.859325,
+    //     ymax: 0.204784,
+    //     spatialReference: 4326
+    // });
+    
+
+
     // Active view is scene
     setActiveView(app.sceneView);
+    //setActiveView(app.mapView);
+
+
+
+
+
 
     // Create search widget
     app.searchWidgetNav = new Search({

@@ -66,7 +66,10 @@
 </head>
 
 <body class="calcite-maps calcite-nav-top" background="">
-        
+
+
+
+    <div id="divMapa" class="oculto">        
   <!-- Navbar -->
 
   <nav class="navbar calcite-navbar navbar-fixed-top calcite-text-light calcite-bg-dark calcite-bgcolor-dark-blue">
@@ -90,10 +93,6 @@
         <li><a role="menuitem" tabindex="1" data-target="#panelBasemaps" aria-haspopup="true"><span class="glyphicon esri-icon-basemap"></span> Mapas Base</a></li>
         <li><a role="menuitem" tabindex="4" data-target="#panelLayerList" aria-haspopup="true"><span class="glyphicon esri-icon-layers"></span> Lista de Capas</a></li>
         <li><a role="menuitem" tabindex="5" data-target="#panelLegend" aria-haspopup="true"><span class="glyphicon glyphicon-list"></span> Leyenda</a></li>
-
-
-        <li><a role="menuitem" tabindex="5" data-target="#panelPrincipal" aria-haspopup="true"><span class="glyphicon glyphicon-list"></span> Menu</a></li>
-
         
 
         <!-- <li><a role="menuitem" tabindex="2" data-target="#panelBookmarks" aria-haspopup="true"><span class="glyphicon glyphicon-book"></span> Sitios de Interes</a></li> -->
@@ -129,7 +128,7 @@
 
   <!-- Map Container  -->
 
-  <div class="calcite-map calcite-map-absolute oculto">
+  <div class="calcite-map calcite-map-absolute">
     <div id="tabContainer" class="tab-content">
       <div id="mapTab" class="tab-pane fade  in active " role="tabpanel">
          <div id="mapViewDiv"></div>
@@ -140,34 +139,6 @@
     </div>
   </div>
 
-  <!-- Principal -->
-  <div class="calcite-map calcite-map-absolute padre oculto">
-    <img src= "img/fondo.jpg" alt="fondo" style="height: 100%;">
-    <div class="hijo">
-        
-        <span class="calcite-title-main" style="color: #FFF; padding-bottom: 300px;font-size: 30px;
-        text-align: center;">Patrimonio Geológico</span>
-        <div class="padre" style=" border-radius: 12px; padding: 8px;"><img src= "img/logo_0.png" alt="DGAR" ></div>
-        
-    </div>
-    
-  </div>
-
-  <!-- Menu 1 -->
-  <div class="calcite-map calcite-map-absolute padre ">
-    <img src= "img/menu.jpg" alt="fondo" style="width: 100%;">
-    <div class="hijo">
-
-<div class="botton0">Mapa de Geositios </div>
-<div class="botton0">Catálogo de GeoSitios </div>
-<div class="botton0">Repositorio </div>
-<div class="botton0">Glosario </div>
-
-    </div>
-    <div class="padre" ><img src= "img/logo_0.png" alt="DGAR" >
-    <div>Grupo de Patrimonio Geológico</div>
-</div>
-  </div>
   <!-- Panel Container -->
 
   <div class="calcite-panels calcite-panels-right calcite-bg-custom calcite-text-light calcite-bgcolor-dark-blue panel-group" role="tablist" aria-multiselectable="true">
@@ -315,16 +286,8 @@
 
 
 
-
-  
-
-
-
-
   </div> <!-- /.calcite-panels -->
-
- 
-  
+</div>
   <script type="text/javascript">
     var dojoConfig = {
       packages: [{

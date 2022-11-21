@@ -8,3 +8,48 @@ cordova platform add Android --save
 
 --ejecuta el app
  cordova run browser
+ cordova run browser -- --live-reload 
+ cordova run browser --verbose
+
+
+
+
+ cordova run android
+
+
+
+ --Crear apk
+ cordova build android 
+
+
+-- Construye tu aplicación para generar un archivo ejecutable:
+cordova build // Build project for all platforms
+cordova build ios // Build project only for iOS platform
+cordova build android // Build project only for Android platform
+
+---Una vez desarrollada, puede ejecutar la aplicación en una de las plataformas que agregó:
+cordova run android --emulator // Run Android app in emulator
+cordova run android --device // Run Android app on physical connected device
+cordova run browser // Will run the app in the browser
+
+--Instalar plugin geolocation
+cordova plugin add cordova-plugin-geolocation
+
+
+
+--crear archivos aab
+cordova build android --prod --release -- --packageType=bundle 
+
+
+--Firmar
+cordova build android --release
+
+1. ir al direcorio del 
+cd F:\00_datos\00_desarrollo\_Proyectos_git\Visor-Patrimonio-Geologico-\PatrimonioGeologico\platforms\android\app\build\outputs\apk\debug
+
+2. keytool -genkey -v -keystore PatrimonioGeologico.keystore -alias PatrimonioGeologico -keyalg RSA -keysize 2048 -validity 10000
+   clave: 123456
+3. Firmar
+   jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore PatrimonioGeologico.keystore app-debug.apk PatrimonioGeologico
+
+  zipalign -v 4 app-debug.apk PatrimonioGeologico.apk

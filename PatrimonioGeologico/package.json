@@ -1,8 +1,8 @@
 {
   "name": "pe.gob.ingemmet.patrimoniogeologico",
-  "displayName": "PatrimonioGeologico",
+  "displayName": "Patrimonio Geológico",
   "version": "1.0.0",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "description": "Aplicativo para presentar el Patrimonio Geológico del Perú",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,14 +10,25 @@
   "keywords": [
     "ecosystem:cordova"
   ],
-  "author": "Apache Cordova Team",
-  "license": "Apache-2.0",
+  "author": "INGEMMET",
+  "license": "INGEMMET",
   "dependencies": {
-    "cordova-browser": "6.0.0"
+    "cordova-android": "10.1.2",
+    "cordova-browser": "6.0.0",
+    "node": "^16.17.0"
   },
   "cordova": {
     "platforms": [
-      "browser"
-    ]
+      "browser",
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-geolocation": {
+        "GPS_REQUIRED": "true"
+      }
+    }
+  },
+  "devDependencies": {
+    "cordova-plugin-geolocation": "^4.1.0"
   }
 }
